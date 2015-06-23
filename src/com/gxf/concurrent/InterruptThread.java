@@ -16,9 +16,14 @@ public class InterruptThread {
 		@Override
 		public void run() {
 			try {
+			
 				Thread.sleep(5000);
 				System.out.println("Afer sleep");
 			} catch (InterruptedException e) {
+				//线程已经中断，抛出异常
+				System.out.println(Thread.currentThread().isInterrupted());
+				Thread.currentThread().interrupt();
+				System.out.println(Thread.currentThread().interrupted());
 				e.printStackTrace();
 			}
 			

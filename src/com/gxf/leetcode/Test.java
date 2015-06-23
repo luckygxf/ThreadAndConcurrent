@@ -11,13 +11,9 @@ import com.gxf.util.Util;
 public class Test {
 
 	public static void main(String[] args) {
-		MyStack stack = new MyStack();
-		
-		
-		while(!stack.empty()){
-			System.out.println(stack.top());
-			stack.pop();
-		}
+		Solution sol = new Solution();
+		String expression = " 2-1 + 2 ";
+		System.out.println(sol.calculate(expression));
 	
 	}
 

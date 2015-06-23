@@ -1,66 +1,55 @@
 package com.gxf.leetcode;
 
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.Stack;
 
-class MyStack {
-	private Queue<Integer> queue1 = new LinkedList<Integer>();
-	private Queue<Integer> queue2 = new LinkedList<Integer>();
+public class Solution {
+	Stack<Integer> nums = new Stack<Integer>();
+	Stack<Character> operations = new Stack<Character>();
 	
-    public void push(int x) {
-        if(queue1.isEmpty())
-        	queue2.add(x);
-        else
-        	queue1.add(x);
-    }
-
-
-    public void pop() {
-        if(empty())
-        	return;
-        if(!queue1.isEmpty()){
-        	int temp = queue1.poll();
-        	while(!queue1.isEmpty()){
-        		queue2.add(temp);
-        		temp = queue1.poll();
-        	}
-        }
-        else{
-        	int temp = queue2.poll();
-        	while(!queue2.isEmpty()){
-        		queue1.add(temp);
-        		temp = queue2.poll();
-        	}
-        }
-    }
-
-
-    public int top() {
-        if(empty())
-        	return queue1.poll();
-        if(!queue1.isEmpty()){
-        	int temp = queue1.poll();
-        	while(!queue1.isEmpty()){
-        		queue2.add(temp);
-        		temp = queue1.poll();
-        	}
-        	queue2.add(temp);
-        	return temp;
-        }
-        if(!queue2.isEmpty()){
-        	int temp = queue2.poll();
-        	while(!queue2.isEmpty()){
-        		queue1.add(temp);
-        		temp = queue2.poll();
-        	}
-        	queue1.add(temp);
-        	return temp;
-        }
-        return -1;
-    }
-
-
-    public boolean empty() {
-        return queue1.isEmpty() && queue2.isEmpty();
+    public int calculate(String s) {
+//        int result = 0;
+    	for(int i = 0; i < s.length(); i++){        	
+    		char temp = s.charAt(i);
+    		if(s.charAt(i) == ' ')										//¿Õ¸ñ
+    			continue;			
+    		else if(s.charAt(i) == '(')									//×óÀ¨ºÅ
+    			nums.push(-1);
+    		else if(s.charAt(i) == '+' || s.charAt(i) == '-')			//ÔËËã·û
+    			operations.push(s.charAt(i));
+    		else if(s.charAt(i) >= '0' && s.charAt(i) <= '9'){			//Êý×Ö
+    			int tempNum = s.charAt(i++) - '0';
+    			while(i < s.length() && s.charAt(i) >= '0' && s.charAt(i) <= '9'){
+    				tempNum = tempNum * 10 + s.charAt(i) - '0';
+    				i++;
+    			}
+    			i--;
+    			nums.push(tempNum);
+    		}
+    		else{														//ÓÒÀ¨ºÅ
+    			do{
+    				int num1 = nums.pop();
+    				int num2 = nums.pop();
+    				char operator = operations.pop();
+    				if(operator == '+')
+    					nums.push(num1 + num2);
+    				else
+    					nums.push(num2 - num1);
+    			}while(nums.peek() != -1);
+    			nums.pop();
+    		}
+        }//for
+        
+    	while(!operations.isEmpty()){
+    		int num1 = nums.pop();
+			int num2 = nums.pop();
+			char operator = operations.pop();
+			if(operator == '+')
+				nums.push(num1 + num2);
+			else
+				nums.push(num2 - num1);
+    	}//while
+    	
+    	
+        return nums.peek();
     }
 }
