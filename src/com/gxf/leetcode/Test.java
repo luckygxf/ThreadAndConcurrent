@@ -1,5 +1,7 @@
 package com.gxf.leetcode;
 
+import java.util.List;
+
 import com.gxf.util.Util;
 
 //      4
@@ -12,9 +14,13 @@ public class Test {
 
 	public static void main(String[] args) {
 		Solution sol = new Solution();
-		String expression = " 2-1 + 2 ";
-		System.out.println(sol.calculate(expression));
-	
+		int nums[] = {0,1};
+		
+		List<String> result = sol.summaryRanges(nums);
+		System.out.println(result);
 	}
-
+	
+	public static void showList(List<String> listOfString){
+		
+	}
 }

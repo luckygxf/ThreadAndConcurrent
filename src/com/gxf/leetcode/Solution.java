@@ -1,55 +1,49 @@
 package com.gxf.leetcode;
 
-import java.util.Stack;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Solution {
-	Stack<Integer> nums = new Stack<Integer>();
-	Stack<Character> operations = new Stack<Character>();
-	
-    public int calculate(String s) {
-//        int result = 0;
-    	for(int i = 0; i < s.length(); i++){        	
-    		char temp = s.charAt(i);
-    		if(s.charAt(i) == ' ')										//¿Õ¸ñ
-    			continue;			
-    		else if(s.charAt(i) == '(')									//×óÀ¨ºÅ
-    			nums.push(-1);
-    		else if(s.charAt(i) == '+' || s.charAt(i) == '-')			//ÔËËã·û
-    			operations.push(s.charAt(i));
-    		else if(s.charAt(i) >= '0' && s.charAt(i) <= '9'){			//Êý×Ö
-    			int tempNum = s.charAt(i++) - '0';
-    			while(i < s.length() && s.charAt(i) >= '0' && s.charAt(i) <= '9'){
-    				tempNum = tempNum * 10 + s.charAt(i) - '0';
-    				i++;
-    			}
-    			i--;
-    			nums.push(tempNum);
-    		}
-    		else{														//ÓÒÀ¨ºÅ
-    			do{
-    				int num1 = nums.pop();
-    				int num2 = nums.pop();
-    				char operator = operations.pop();
-    				if(operator == '+')
-    					nums.push(num1 + num2);
-    				else
-    					nums.push(num2 - num1);
-    			}while(nums.peek() != -1);
-    			nums.pop();
-    		}
-        }//for
+    public List<String> summaryRanges(int[] nums) {
+        List<String> result = new ArrayList<String>();
+        if(nums == null || nums.length == 0)
+        	return result;
+        if(nums.length == 1)
+        {
+        	result.add(String.valueOf(nums[0]));
+        	return result;
+        }
         
-    	while(!operations.isEmpty()){
-    		int num1 = nums.pop();
-			int num2 = nums.pop();
-			char operator = operations.pop();
-			if(operator == '+')
-				nums.push(num1 + num2);
-			else
-				nums.push(num2 - num1);
-    	}//while
-    	
-    	
-        return nums.peek();
+        int point = 1;
+        int start = 0;
+        int end = 0;
+        
+        while(point < nums.length){
+        	if(nums[point] - nums[point - 1] != 1){
+        		addStringToList(result, nums, start, end);
+        		start = point;
+        		end = point;
+        	}
+        	else{
+        		end++;
+        	}
+        	
+        	point++;
+        }//while
+        
+        addStringToList(result, nums, start, end);
+        
+        return result;
     }
+    
+    private void addStringToList(List<String> result,int nums[], int start, int end){
+    	if(start == end){
+    		result.add("\"" + nums[start] + "\"");
+    	}
+    	else{
+    		String element = "\"" + nums[start] + "->" + nums[end] + "\"";
+    		result.add(element);    		
+    	}
+    }
+    
 }
