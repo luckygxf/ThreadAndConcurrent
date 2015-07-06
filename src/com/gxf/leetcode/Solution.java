@@ -4,6 +4,30 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Solution {
+    /**
+     *  π”√’€∞Î≤È’“
+     * @param n
+     * @return
+     */
+    public boolean isPowerOfTwo(int n) {
+    	if(n == 0 )
+    		return false;
+    	long num = n;
+    	long result = 1;
+    	
+    	while(result <= num){
+    		if(result == num)
+    			return true;
+    		result *= 2;
+    	}//while
+    	
+    	return false;
+    }
+}
+
+
+
+class SolutionSummaryRanges {
     public List<String> summaryRanges(int[] nums) {
         List<String> result = new ArrayList<String>();
         if(nums == null || nums.length == 0)
