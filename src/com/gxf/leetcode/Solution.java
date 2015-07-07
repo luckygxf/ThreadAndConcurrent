@@ -2,8 +2,52 @@ package com.gxf.leetcode;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Stack;
 
-public class Solution {
+/**
+ * 用堆栈实现队列
+ * 昨天刚好在剑指offer上面看到了
+ * @author GXF
+ *
+ */
+class MyQueue {
+	private Stack<Integer> stack1 = new Stack<Integer>();
+	private Stack<Integer> stack2 = new Stack<Integer>();
+	
+    // Push element x to the back of queue.
+    public void push(int x) {
+        stack1.push(x);
+    }
+
+    // Removes the element from in front of queue.
+    public void pop() {
+        if(stack2.isEmpty()){
+        	while(!stack1.isEmpty()){
+        		stack2.push(stack1.pop());
+        	}//while
+        }//if
+        
+        stack2.pop();
+    }
+
+    // Get the front element.
+    public int peek() {
+    	if(stack2.isEmpty()){
+        	while(!stack1.isEmpty()){
+        		stack2.push(stack1.pop());
+        	}//while
+        }//if
+        
+        return stack2.peek();
+    }
+
+    // Return whether the queue is empty.
+    public boolean empty() {
+        return stack1.isEmpty() && stack2.isEmpty();
+    }
+}
+
+class Solution {
     /**
      * 使用折半查找
      * @param n
