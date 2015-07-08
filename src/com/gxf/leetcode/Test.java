@@ -14,8 +14,9 @@ public class Test {
 
 	public static void main(String[] args) {
 		Solution sol = new Solution();
-		int num = 2147483646;
-		System.out.println(sol.isPowerOfTwo(num));
+		int num = 824883294;
+//		int num = 13;
+		System.out.println(sol.countDigitOne(num));
 	}
 	
 	public static void showList(List<String> listOfString){

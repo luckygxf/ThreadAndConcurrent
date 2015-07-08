@@ -4,6 +4,41 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
+public class Solution {
+    /**
+     * 计算小于等于n的数字里面1的个数，总和
+     * 超时了，还需要优化 
+     * @param n
+     * @return
+     */
+    public int countDigitOne(int n) {
+    	int count = 0;
+        for(int i = 1; i <= n; i++){
+        	count += getNumsOfOne(i);
+        }//for
+
+        
+        return count;
+    }
+    
+    /**
+     * 计算一个数字中1的个数
+     * @param num
+     * @return
+     */
+    private int getNumsOfOne(int num){
+    	int count = 0;
+    	String stringOfNum = String.valueOf(num);
+    	for(int i = 0; i < stringOfNum.length(); i++){
+    		if(stringOfNum.charAt(i) == '1')
+    			count++;
+    	}
+    	
+    	return count;
+    }
+    
+}
+
 /**
  * 用堆栈实现队列
  * 昨天刚好在剑指offer上面看到了
@@ -47,7 +82,7 @@ class MyQueue {
     }
 }
 
-class Solution {
+class SolutionIsPowerOfTwo {
     /**
      * 使用折半查找
      * @param n
