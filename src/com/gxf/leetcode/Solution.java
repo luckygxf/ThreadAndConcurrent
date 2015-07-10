@@ -4,7 +4,33 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
+
 public class Solution {
+	//这里的时间复杂度为O（n）空间复杂度也是o(n)
+	//题目要求时间复杂度为o(n) 空间复杂度为o(1)
+    public boolean isPalindrome(ListNode head) {
+        if(head == null)
+        	return true;
+        Stack<Integer> stackOfNode = new Stack<Integer>();
+        
+        ListNode tempHead = head;
+        while(tempHead != null){
+        	stackOfNode.push(tempHead.val);
+        	tempHead = tempHead.next;
+        }//while
+        
+        tempHead = head;
+        while(tempHead != null){
+        	if(tempHead.val != stackOfNode.pop())
+        		return false;
+        	tempHead = tempHead.next;
+        }//while
+        
+        return true;
+    }
+}
+
+class SolutionCountDigitOne {
     /**
      * 计算小于等于n的数字里面1的个数，总和
      * 超时了，还需要优化 

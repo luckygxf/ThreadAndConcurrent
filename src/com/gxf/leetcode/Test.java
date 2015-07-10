@@ -14,12 +14,25 @@ public class Test {
 
 	public static void main(String[] args) {
 		Solution sol = new Solution();
-		int num = 824883294;
-//		int num = 13;
-		System.out.println(sol.countDigitOne(num));
+		ListNode head = new ListNode(1);
+		ListNode node = new ListNode(2);
+		ListNode node1 = new ListNode(1);
+		
+		head.next = node;
+		node.next = node1;
+		showLinkList(head);
+		System.out.println(sol.isPalindrome(head));
+		showLinkList(head);
 	}
 	
-	public static void showList(List<String> listOfString){
+
+	
+	public static void showLinkList(ListNode head){
+		while(head != null){
+			System.out.print(head.val + " ");
+			head = head.next;
+		}//while
 		
+		System.out.println();
 	}
 }
