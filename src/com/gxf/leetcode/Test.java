@@ -14,15 +14,7 @@ public class Test {
 
 	public static void main(String[] args) {
 		Solution sol = new Solution();
-		ListNode head = new ListNode(1);
-		ListNode node = new ListNode(2);
-		ListNode node1 = new ListNode(1);
 		
-		head.next = node;
-		node.next = node1;
-		showLinkList(head);
-		System.out.println(sol.isPalindrome(head));
-		showLinkList(head);
 	}
 	
 

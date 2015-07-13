@@ -4,8 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
-
 public class Solution {
+//    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+//        
+//    }
+}
+
+class SolutionIsPalindrome {
 	//这里的时间复杂度为O（n）空间复杂度也是o(n)
 	//题目要求时间复杂度为o(n) 空间复杂度为o(1)
     public boolean isPalindrome(ListNode head) {
@@ -173,6 +178,5 @@ class SolutionSummaryRanges {
     		String element = "\"" + nums[start] + "->" + nums[end] + "\"";
     		result.add(element);    		
     	}
-    }
-    
+    }    
 }
