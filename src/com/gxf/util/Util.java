@@ -47,6 +47,17 @@ public class Util {
 	}
 	
 	/**
+	 * 输出整型数组
+	 * @param array
+	 */
+	public static void showInArray(int array[]){
+		for(int i = 0; i < array.length; i++){
+			System.out.print(array[i] + " ");
+		}
+		System.out.println();
+	}
+	
+	/**
 	 * 测试代码
 	 * @param args
 	 * @throws InterruptedException 
