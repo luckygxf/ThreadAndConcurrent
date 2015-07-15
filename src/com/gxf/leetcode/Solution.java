@@ -4,7 +4,27 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
+/**
+ * 删除给定的单链表中的节点
+ * 剑指offer上面的一道题
+ * @author GXF
+ *
+ */
 public class Solution {
+    public void deleteNode(ListNode node) {
+        if(node == null)
+        	return;
+        node.val = node.next.val;
+        node.next = node.next.next;
+    }
+}
+
+/**
+ * 计算一个二叉排序树，两个节点的最低公共父节点
+ * @author GXF
+ *
+ */
+class SolutionLowestCommonAncestor {
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
         if(root == null)
         	return root;
