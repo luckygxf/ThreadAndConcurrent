@@ -4,13 +4,49 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
+
+public class Solution {
+    public int[] productExceptSelf(int[] nums) {
+    	if(nums == null || nums.length == 0)
+    		return null;
+    	long allProduct = 1;
+    	for(int i = 0; i < nums.length && allProduct != 0; i++)
+    		allProduct *= nums[i];
+    	int result[] = new int[nums.length];
+    	
+    	for(int i = 0; i < result.length; i++)
+    	{
+    		if(nums[i] == 0){
+    			result[i] = getProductExceptSelf(nums, i);
+    		}
+    		else
+    			result[i] = (int) (allProduct / (long)nums[i]);
+    	}
+    	
+    	return result;
+    }
+    
+    private int getProductExceptSelf(int nums[], int position){
+    	int result = 1;
+    	for(int i = 0; i < nums.length && result != 0; i++){
+    		if(i == position)
+    			continue;
+    		result *= nums[i];
+    	}//for
+    	
+    	return result;
+    }
+}
+
+
+
 /**
  * 删除给定的单链表中的节点
  * 剑指offer上面的一道题
  * @author GXF
  *
  */
-public class Solution {
+class SolutionDeleteNode {
     public void deleteNode(ListNode node) {
         if(node == null)
         	return;

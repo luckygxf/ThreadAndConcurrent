@@ -2,6 +2,7 @@ package com.gxf.util;
 
 import java.util.Date;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 import java.util.Random;
 
@@ -54,6 +55,16 @@ public class Util {
 		for(int i = 0; i < array.length; i++){
 			System.out.print(array[i] + " ");
 		}
+		System.out.println();
+	}
+	
+	/**
+	 * 显示整型列表中内容
+	 * @param listOfInteger
+	 */
+	public static void showIntegerOfList(List<Integer> listOfInteger){
+		for(int i = 0; i < listOfInteger.size(); i++)
+			System.out.print(listOfInteger.get(i) + " ");
 		System.out.println();
 	}
 	
