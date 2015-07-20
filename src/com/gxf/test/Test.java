@@ -1,5 +1,6 @@
 package com.gxf.test;
 
+import java.sql.Timestamp;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
@@ -29,7 +30,8 @@ public class Test implements Runnable {
 	}
 
 	public static void main(String[] args) {
-		double num = 0;
-		System.out.println((num == 0));
+		Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+		
+		System.out.println("timestamp = " + timestamp);
 	}
 }
