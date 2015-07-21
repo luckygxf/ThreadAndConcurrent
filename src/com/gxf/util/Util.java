@@ -79,6 +79,16 @@ public class Util {
 			Thread.sleep(1000);
 		}
 	}
+	
+	/**
+	 * Êä³ö×Ö·ûÊı×ÖÄÚÈİ
+	 * @param array
+	 */
+	public static void showCharArray(char array[]){
+		for(int i = 0; i < array.length; i++)	
+			System.out.print(array[i] + " ");
+		System.out.println();
+	}
 }
 
 
