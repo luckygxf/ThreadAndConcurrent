@@ -12,9 +12,9 @@ public class BubbleSort {
 	public static void main(String[] args) {
 		BubbleSort bubbleSort = new BubbleSort();
 		int array[] = {32, 1, 34, 54, 5, 6};
-		Util.showInArray(array);
+		Util.showIntArray(array);
 		bubbleSort.bubbleSort(array);
-		Util.showInArray(array);
+		Util.showIntArray(array);
 
 	}
 	

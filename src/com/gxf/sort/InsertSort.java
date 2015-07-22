@@ -12,12 +12,12 @@ public class InsertSort {
 	public static void main(String[] args) {
 		int array[] = {32, 1, 34, 54, 5, 6};
 		
-		Util.showInArray(array);
+		Util.showIntArray(array);
 		
 		InsertSort insertSort = new InsertSort();
 		insertSort.insertSort(array);
 		
-		Util.showInArray(array);
+		Util.showIntArray(array);
 	}
 	
 	public void insertSort(int array[]){

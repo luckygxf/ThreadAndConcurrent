@@ -14,9 +14,9 @@ public class QuickSort {
 	public static void main(String[] args) {
 		QuickSort quickSort = new QuickSort();
 		int array[] = {32, 1, 34, 54, 5, 6};
-		Util.showInArray(array);
+		Util.showIntArray(array);
 		quickSort.quickSort(array, 0, array.length - 1);
-		Util.showInArray(array);
+		Util.showIntArray(array);
 
 	}
 	

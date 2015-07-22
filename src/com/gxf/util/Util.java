@@ -51,7 +51,7 @@ public class Util {
 	 * 输出整型数组
 	 * @param array
 	 */
-	public static void showInArray(int array[]){
+	public static void showIntArray(int array[]){
 		for(int i = 0; i < array.length; i++){
 			System.out.print(array[i] + " ");
 		}
@@ -89,6 +89,19 @@ public class Util {
 			System.out.print(array[i] + " ");
 		System.out.println();
 	}
+	
+	/**
+	 * 输出链表内容
+	 * @param head
+	 */
+	public static void showLinkList(Node head){
+		while(head != null){
+			System.out.print(head.key + " ");
+			head = head.next;
+		}
+	}
 }
+
+
 
 

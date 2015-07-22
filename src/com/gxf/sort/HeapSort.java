@@ -14,9 +14,9 @@ public class HeapSort {
 	public static void main(String[] args) {
 		int array[] = {32, 1, 34, 54, 5, 6};
 		HeapSort heapSort = new HeapSort();
-		Util.showInArray(array);
+		Util.showIntArray(array);
 		heapSort.heapSort(array);
-		Util.showInArray(array);
+		Util.showIntArray(array);
 
 	}
 	

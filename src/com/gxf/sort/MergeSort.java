@@ -16,9 +16,9 @@ public class MergeSort {
 	public static void main(String[] args) {
 		int array[] = {32, 1, 34, 54, 5, 6};
 		MergeSort mergeSort = new MergeSort();
-		Util.showInArray(array);
+		Util.showIntArray(array);
 		mergeSort.mergeSort(array);
-		Util.showInArray(array);
+		Util.showIntArray(array);
 
 	}
 	

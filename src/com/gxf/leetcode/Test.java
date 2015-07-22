@@ -27,7 +27,7 @@ public class Test {
 		Solution sol = new Solution();
 		int nums[] = {1,2,3,4};
 		int result[] = sol.productExceptSelf(nums);
-		Util.showInArray(result);
+		Util.showIntArray(result);
 	}
 	
 
