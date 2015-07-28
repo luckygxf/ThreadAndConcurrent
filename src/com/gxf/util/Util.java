@@ -90,16 +90,7 @@ public class Util {
 		System.out.println();
 	}
 	
-	/**
-	 * Êä³öÁ´±íÄÚÈİ
-	 * @param head
-	 */
-	public static void showLinkList(Node head){
-		while(head != null){
-			System.out.print(head.key + " ");
-			head = head.next;
-		}
-	}
+	
 }
 
 
