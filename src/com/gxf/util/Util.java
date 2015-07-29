@@ -90,7 +90,36 @@ public class Util {
 		System.out.println();
 	}
 	
+	/**
+	 * 字符串转换成二维数组
+	 * @param string
+	 * @return
+	 */
+	public static int[][] stringToArray(String string, int m, int n){
+		int stringIndex = 0;
+		int result[][] = new int[m][n];
+		
+		for(int i = 0; i < m; i++){
+			for(int j = 0; j < n; j++){
+				result[i][j] = string.charAt(stringIndex++) - '0';
+			}//for
+		}//for
+		
+		return result;
+	}
 	
+	/**
+	 * 显示二维数组中的内容
+	 * @param array
+	 */
+	public static void showTwoDimensionArray(int array[][]){
+		for(int i = 0; i < array.length; i++){
+			for(int j = 0; j < array[0].length; j++)
+				System.out.print(array[i][j] + " ");
+			System.out.println();
+		}//for
+		System.out.println();
+	}
 }
 
 
