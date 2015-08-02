@@ -25,9 +25,10 @@ public class Test {
 
 	public static void main(String[] args) {
 		Solution sol = new Solution();
-		int nums[] = {1,2,3,4};
-		int result[] = sol.productExceptSelf(nums);
-		Util.showIntArray(result);
+		String s = "a";
+		String t = "a";
+		boolean result = sol.isAnagram(s, t);
+		System.out.println("result = " + result);
 	}
 	
 

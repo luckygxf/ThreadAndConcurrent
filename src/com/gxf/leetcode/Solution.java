@@ -1,11 +1,47 @@
 package com.gxf.leetcode;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.Stack;
 
-
 public class Solution {
+    public boolean isAnagram(String s, String t) {
+        if(s == null || t == null)
+        	return false;
+        if(s.length() != t.length())
+        	return false;
+        Map<Character, Integer> counter = new HashMap<Character, Integer>();
+        for(int i = 0; i < s.length(); i++)
+        {
+        	Integer tempCounter = counter.get(s.charAt(i));
+        	if(tempCounter == null)
+        		counter.put(s.charAt(i), 1);
+        	else
+        		counter.put(s.charAt(i), ++tempCounter);
+        }
+        for(int i = 0; i < t.length(); i++){
+        	Integer tempCounter = counter.get(t.charAt(i));
+        	if(tempCounter == null)
+        		return false;
+        	else
+        		counter.put(t.charAt(i), --tempCounter);
+        }
+        //±éÀúmap¼¯ºÏ
+        Iterator<Character> it = counter.keySet().iterator();
+        while(it.hasNext()){
+        	char tempChar = it.next();
+        	if(counter.get(tempChar) != 0)
+        		return false;
+        }
+        
+        return true;
+    }
+}
+
+class ProductExceptSelf {
     public int[] productExceptSelf(int[] nums) {
     	if(nums == null || nums.length == 0)
     		return null;
