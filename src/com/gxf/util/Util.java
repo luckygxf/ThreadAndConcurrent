@@ -120,6 +120,16 @@ public class Util {
 		}//for
 		System.out.println();
 	}
+	
+	/**
+	 * 显示数组中的内容，用#号
+	 * @param list
+	 */
+	public static void showListContent(List<Object> list){
+		for(int i = 0; i < list.size(); i++)
+			System.out.print("#");
+		System.out.println();
+	}
 }
 
 
